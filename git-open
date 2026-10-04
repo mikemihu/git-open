@@ -160,6 +160,15 @@ fi
 # Trim "/" from beginning of URL; "/" and ".git" from end of URL
 urlpath=${urlpath#/} urlpath=${urlpath%/} urlpath=${urlpath%.git}
 
+# Entire routes GitHub mirrors through entire:// URLs:
+#   entire://<cluster>.entire.io/gh/<owner>/<repo>
+# Open the original GitHub repo instead of the Entire cluster page.
+if [[ $gitprotocol == 'entire' && $urlpath == gh/* ]]; then
+  protocol='https'
+  domain='github.com'
+  urlpath=${urlpath#gh/}
+fi
+
 # If the URL is provided as "http", preserve that
 if [[ $gitprotocol == 'http' ]]; then
   protocol='http'

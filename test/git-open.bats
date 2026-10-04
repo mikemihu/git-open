@@ -144,6 +144,20 @@ setup() {
   assert_output "https://github.com/user/repo"
 }
 
+@test "gh: entire mirror" {
+  git remote set-url origin "entire://aws-ap-southeast-2.entire.io/gh/user/repo"
+  git checkout -B "master"
+  run ../git-open
+  assert_output "https://github.com/user/repo"
+}
+
+@test "gh: entire mirror branch" {
+  git remote set-url origin "entire://aws-ap-southeast-2.entire.io/gh/user/repo"
+  git checkout -B "mybranch"
+  run ../git-open
+  assert_output "https://github.com/user/repo/tree/mybranch"
+}
+
 @test "gh: git open --issue" {
   # https://github.com/paulirish/git-open/pull/46
   git remote set-url origin "github.com:paulirish/git-open.git"
