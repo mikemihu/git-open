@@ -63,6 +63,20 @@ or copy `git-open` into an existing included path like `/usr/local/bin`).
 npm install --global git-open
 ```
 
+### Install from this fork (bun)
+
+Bun installs directly from this repo 
+
+```sh
+bun install -g github:mikemihu/git-open
+```
+
+to update
+
+```sh
+bun update -g git-open
+```
+
 ### Windows Powershell
 
 Save git-open anywhere, say as ~/Documents/Scripts/git-open.sh and define
@@ -131,6 +145,7 @@ git-open can automatically guess the corresponding repository page for remotes
 - Team Foundation Server (on-premises)
 - AWS Code Commit
 - cnb.cool
+- Entire (entire.io) GitHub mirrors
 
 ## Configuration 
 
